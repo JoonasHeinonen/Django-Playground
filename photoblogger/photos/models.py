@@ -9,7 +9,9 @@ class Board(models.Model):
         return self.name
 
 class Post(models.Model):
+    description = models.TextField(max_length=4000)
     image       = models.ImageField(upload_to ='uploads/')
     headline    = models.TextField(max_length=100)
-    description = models.TextField(max_length=600)
     created_at  = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE, default=55)
+    updated_by  = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)

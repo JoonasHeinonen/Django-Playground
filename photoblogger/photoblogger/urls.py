@@ -21,5 +21,7 @@ from photos import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^boards/(?P<pk>\d+)/$', views.board_posts, name='board_posts'),
+    url(r'^boards/(?P<pk>\d+)/new/$', views.new_post, name='new_post'),
     url(r'^admin/', admin.site.urls),
 ]
